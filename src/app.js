@@ -41,6 +41,8 @@ import less from './styles.less';
 // available as a string relative to [root]/dist/assets/img/
 import logo from './reactql-logo.svg';
 
+import KeaCounter from './scenes/counter';
+
 // ----------------------
 
 // We'll display this <Home> component when we're on the / route
@@ -187,6 +189,8 @@ export default () => (
     </Switch>
     <hr />
     <ReduxCounter />
+    <hr />
+    <KeaCounter />
     <hr />
     <p>Runtime info:</p>
     <Stats />

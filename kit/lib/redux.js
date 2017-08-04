@@ -11,6 +11,9 @@ own reducers for store state outside of Apollo
 
 /* NPM */
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { keaReducer, keaSaga } from 'kea';
+import createSagaMiddleware from 'redux-saga';
+
 import thunkMiddleware from 'redux-thunk';
 import Immutable from 'seamless-immutable';
 
@@ -50,11 +53,14 @@ function unwind(reducer = true) {
 }
 
 export default function createNewStore(apolloClient) {
+  const sagaMiddleware = createSagaMiddleware();
+
   const store = createStore(
     // By default, we'll use just the apollo reducer.  We can easily add our
     // own here, for global store management outside of Apollo
     combineReducers({
       apollo: apolloClient.reducer(),
+      scenes: keaReducer('scenes'),
       ...unwind(),
     }),
     // Initial server state, provided by the server.
@@ -65,6 +71,7 @@ export default function createNewStore(apolloClient) {
     compose(
         applyMiddleware(
           apolloClient.middleware(),
+          sagaMiddleware,
           thunkMiddleware,
         ),
         // Enable Redux Devtools on the browser, for easy state debugging
@@ -72,6 +79,8 @@ export default function createNewStore(apolloClient) {
         (!SERVER && typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined') ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
     ),
   );
+
+  sagaMiddleware.run(keaSaga);
 
   return store;
 }
