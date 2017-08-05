@@ -4810,9 +4810,9 @@ jsx-ast-utils@^1.4.0, jsx-ast-utils@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-1.4.1.tgz#3867213e8dd79bf1e8f2300c0cfc1efb182c0df1"
 
-kea@^0.20.4:
-  version "0.20.4"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-0.20.4.tgz#4d27af9829ba560cabef3cf429d7cd52d326e716"
+kea@^0.20.5:
+  version "0.20.5"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-0.20.5.tgz#e98d0f33d78d271373d8ae20cc9bd8b904b676c9"
   dependencies:
     change-case "^3.0.1"
     commander tj/commander.js#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e
