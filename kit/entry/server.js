@@ -13,6 +13,8 @@
 
 /* NPM */
 
+import 'regenerator-runtime/runtime';
+
 // Patch global.`fetch` so that Apollo calls to GraphQL work
 import 'isomorphic-fetch';
 
