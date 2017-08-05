@@ -52,6 +52,8 @@ function unwind(reducer = true) {
   })));
 }
 
+const scenesReducer = keaReducer('scenes');
+
 export default function createNewStore(apolloClient) {
   const sagaMiddleware = createSagaMiddleware();
 
@@ -60,7 +62,7 @@ export default function createNewStore(apolloClient) {
     // own here, for global store management outside of Apollo
     combineReducers({
       apollo: apolloClient.reducer(),
-      scenes: keaReducer('scenes'),
+      scenes: scenesReducer,
       ...unwind(),
     }),
     // Initial server state, provided by the server.
