@@ -47,7 +47,7 @@ export default new WebpackConfig().extend('[root]/base.js').merge({
       // .js(x) loading
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: /node_modules(?!\/kea)/,
         use: [
           {
             loader: 'babel-loader',
