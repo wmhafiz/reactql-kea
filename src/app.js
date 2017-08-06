@@ -22,6 +22,7 @@ import {
 
 // <Helmet> component for setting the page title
 import Helmet from 'react-helmet';
+import { Button } from 'react-bootstrap';
 
 /* Local */
 
@@ -42,6 +43,7 @@ import less from './styles.less';
 import logo from './reactql-logo.svg';
 
 import KeaCounter from './scenes/counter';
+
 
 // ----------------------
 
@@ -151,7 +153,7 @@ class ReduxCounter extends React.PureComponent {
     return (
       <div>
         <h2>Listening to Redux counter: {count}</h2>
-        <button onClick={this.triggerIncrement}>Increment</button>
+        <Button onClick={this.triggerIncrement}>Increment</Button>
       </div>
     );
   }

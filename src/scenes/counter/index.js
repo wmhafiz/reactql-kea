@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { kea } from 'kea';
+import { Button } from 'react-bootstrap';
 
 @kea({
   path: () => ['scenes', 'counter', 'index'],
@@ -36,8 +37,8 @@ export default class Counter extends Component {
         <br />
         Doublecount: {doubleCounter}
         <br />
-        <button onClick={() => increment(1)}>Increment</button>
-        <button onClick={() => decrement(1)}>Decrement</button>
+        <Button onClick={() => increment(1)}>Increment</Button>
+        <Button onClick={() => decrement(1)}>Decrement</Button>
       </div>
     );
   }
